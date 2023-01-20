@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
+import Shop from "./components/Shop";
 import "./styles/app.scss";
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
       <Nav cartCount={2} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/shop" />
+        <Route path="/shop" element={<Shop />} />
         {/* <Route path="/profile" element={<Profile />} /> */}
       </Routes>
     </div>

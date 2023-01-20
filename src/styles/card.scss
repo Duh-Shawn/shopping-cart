@@ -1,0 +1,30 @@
+.item-card {
+  display: flex;
+  flex-direction: column;
+
+  .item-image {
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .item-info {
+    margin-top: 10px;
+
+    .item-title {
+      height: 100px;
+    }
+
+    .item-price-buy {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      button {
+        padding: 2px;
+      }
+    }
+  }
+}

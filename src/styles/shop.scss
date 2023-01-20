@@ -1,0 +1,8 @@
+.clothes-card-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 75px;
+  column-gap: 35px;
+  padding: 50px;
+  flex: 1;
+}
