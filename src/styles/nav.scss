@@ -3,12 +3,14 @@ nav {
   border-bottom: 1px solid rgba(0, 0, 0, 0.158);
 
   ul {
-    display: flex;
-    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 
     li {
       display: flex;
-      justify-content: center;
       align-items: center;
 
       .cart-section {
@@ -28,10 +30,14 @@ nav {
       }
     }
 
+    .nav-header {
+      justify-content: center;
+    }
+
     .nav-right-buttons {
       display: flex;
-      width: 150px;
-      justify-content: space-between;
+      gap: 25px;
+      justify-content: flex-end;
       align-items: center;
 
       div {
