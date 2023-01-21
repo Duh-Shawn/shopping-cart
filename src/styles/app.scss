@@ -8,15 +8,24 @@
   font-family: Michroma, "Times New Roman", Times, serif;
 }
 
+html,
 body {
-  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
 }
 
 #root {
-  height: 100vh;
+  height: 100%;
 }
 
 .App {
+  position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;

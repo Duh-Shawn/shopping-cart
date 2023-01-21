@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Home() {
   return (
     <main>
-      <Link to="/shop">
+      <Link to="/catalog">
         <button type="button">Shop</button>
       </Link>
     </main>

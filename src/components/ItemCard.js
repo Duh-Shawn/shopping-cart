@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import "../styles/card.scss";
 
-function Card(props) {
+function ItemCard(props) {
   const { suit, handleSubmitToCart } = props;
 
   const [selectedValue, setSelectedValue] = useState(0);
@@ -58,9 +58,9 @@ function Card(props) {
     </div>
   );
 }
-Card.propTypes = {
+ItemCard.propTypes = {
   suit: PropTypes.object.isRequired,
   handleSubmitToCart: PropTypes.func.isRequired,
 };
 
-export default Card;
+export default ItemCard;

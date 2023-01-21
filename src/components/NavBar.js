@@ -1,10 +1,11 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Link } from "react-router-dom";
 import { FiMenu, FiUserX, FiFolder, FiShoppingCart } from "react-icons/fi";
 import PropTypes from "prop-types";
 import "../styles/nav.scss";
 
 function Nav(props) {
-  const { cartCount } = props;
+  const { cartCount, handleCartToggle } = props;
 
   return (
     <nav>
@@ -24,7 +25,12 @@ function Nav(props) {
           <div>
             <FiFolder size="1.5em" />
           </div>
-          <div className="cart-section">
+          <div
+            className="cart-section"
+            onClick={handleCartToggle}
+            role="menuitem"
+            tabIndex="-1"
+          >
             <FiShoppingCart size="1.5em" />
             <div className="cart-total">
               <p>{cartCount}</p>
@@ -37,6 +43,7 @@ function Nav(props) {
 }
 Nav.propTypes = {
   cartCount: PropTypes.number.isRequired,
+  handleCartToggle: PropTypes.func.isRequired,
 };
 
 export default Nav;

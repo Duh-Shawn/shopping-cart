@@ -1,13 +1,20 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
-import Nav from "./components/Nav";
-import Home from "./components/Home";
-import Shop from "./components/Shop";
+import { useState, useEffect } from "react";
+import NavBar from "./components/NavBar";
+import HomePage from "./components/HomePage";
+import CatalogPage from "./components/CatalogPage";
+import ShoppingCart from "./components/ShoppingCart";
 import "./styles/app.scss";
 
 function App() {
   const [cart, setCart] = useState({});
   const [cartSize, setCartSize] = useState(0);
+  // eslint-disable-next-line no-unused-vars
+  const [cartToggled, setCartToggled] = useState(false);
+
+  const handleCartToggle = () => {
+    setCartToggled(!cartToggled);
+  };
 
   const handleSubmitToCart = (data) => {
     // if cart is empty
@@ -35,14 +42,22 @@ function App() {
       setCartSize(cartSize + quantity);
     }
   };
+
+  useEffect(() => {
+    if (cartToggled) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "unset";
+  }, [cartToggled]);
+
+  // setCartToggled(true);
   return (
     <div className="App">
-      <Nav cartCount={cartSize} />
+      <NavBar cartCount={cartSize} handleCartToggle={handleCartToggle} />
+      {cartToggled && <ShoppingCart handleCartToggle={handleCartToggle} />}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route
-          path="/shop"
-          element={<Shop handleSubmitToCart={handleSubmitToCart} />}
+          path="/catalog"
+          element={<CatalogPage handleSubmitToCart={handleSubmitToCart} />}
         />
         {/* <Route path="/profile" element={<Profile />} /> */}
       </Routes>

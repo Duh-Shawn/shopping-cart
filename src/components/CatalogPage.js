@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import Card from "./Card";
+import ItemCard from "./ItemCard";
 import "../styles/shop.scss";
 import jsonData from "../data/suits.json";
 
@@ -37,7 +37,7 @@ function Shop(props) {
     <div className="clothes-card-container">
       {suitProducts &&
         suitProducts.map((suit) => (
-          <Card
+          <ItemCard
             key={suit.id}
             suit={suit}
             handleSubmitToCart={handleSubmitToCart}
