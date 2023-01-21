@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FiMenu, FiUserX, FiFolder, FiShoppingCart } from "react-icons/fi";
 import PropTypes from "prop-types";
 import "../styles/nav.scss";
@@ -12,7 +13,9 @@ function Nav(props) {
           <FiMenu size="1.5em" />
         </li>
         <li className="nav-header">
-          <h1>Men&apos;s Outpost</h1>
+          <Link to="/">
+            <h1>Men&apos;s Outpost</h1>
+          </Link>
         </li>
         <li className="nav-right-buttons">
           <div>

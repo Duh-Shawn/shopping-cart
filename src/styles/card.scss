@@ -22,8 +22,20 @@
       justify-content: space-between;
       align-items: center;
 
-      button {
-        padding: 2px;
+      .item-quantity {
+        input {
+          flex: 0;
+          margin-right: 5px;
+          width: 200px;
+          border: 1px solid rgba(0, 0, 0, 0.178);
+          text-align: center;
+        }
+        button{
+            padding-left: 5px;
+            padding-right: 5px;
+            border: none;
+            border-radius: 5px;
+        }
       }
     }
   }

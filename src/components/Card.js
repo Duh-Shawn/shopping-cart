@@ -14,7 +14,10 @@ function Card(props) {
         </div>
         <div className="item-price-buy">
           <p>{suit.price.current.text}</p>
-          <button type="button">Add to cart</button>
+          <div className="item-quantity">
+            <input type="number" placeholder="0" />
+            <button type="button">Add to cart</button>
+          </div>
         </div>
       </div>
     </div>
