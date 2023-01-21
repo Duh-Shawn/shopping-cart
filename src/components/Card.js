@@ -1,8 +1,35 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 import "../styles/card.scss";
 
 function Card(props) {
-  const { suit } = props;
+  const { suit, handleSubmitToCart } = props;
+
+  const [selectedValue, setSelectedValue] = useState(0);
+
+  const handleIncrementDecrement = (event) => {
+    const { value } = event.target;
+    setSelectedValue(value);
+  };
+
+  const handleAddToCart = () => {
+    if (selectedValue > 0) {
+      const data = {
+        id: suit.id,
+        name: suit.name,
+        price: suit.price.current.text,
+        quantity: Number(selectedValue),
+      };
+      // eslint-disable-next-line no-unused-vars
+      const { id } = suit;
+
+      // send this to parent component to add this to cart
+      handleSubmitToCart(data);
+      // reset selected value back to 0;
+      setSelectedValue(0);
+    }
+  };
+
   return (
     <div className="item-card">
       <div className="item-image">
@@ -15,8 +42,16 @@ function Card(props) {
         <div className="item-price-buy">
           <p>{suit.price.current.text}</p>
           <div className="item-quantity">
-            <input type="number" placeholder="0" />
-            <button type="button">Add to cart</button>
+            <input
+              type="number"
+              min="0"
+              placeholder={0}
+              value={selectedValue}
+              onChange={handleIncrementDecrement}
+            />
+            <button type="button" onClick={handleAddToCart}>
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
@@ -25,6 +60,7 @@ function Card(props) {
 }
 Card.propTypes = {
   suit: PropTypes.object.isRequired,
+  handleSubmitToCart: PropTypes.func.isRequired,
 };
 
 export default Card;
