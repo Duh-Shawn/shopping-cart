@@ -17,9 +17,7 @@ function App() {
   };
 
   const handleSubmitToCart = (data) => {
-    // if cart is empty
-    // or if the data does not exist
-    // add it to the cart for the first time
+    // if cart is empty or if the data does not exist - add it to the cart for the first time
     if (Object.keys(cart) === 0 || !(data.id in cart)) {
       const { id, name, price, quantity } = data;
 
@@ -48,7 +46,6 @@ function App() {
     else document.body.style.overflow = "unset";
   }, [cartToggled]);
 
-  // setCartToggled(true);
   return (
     <div className="App">
       <NavBar cartCount={cartSize} handleCartToggle={handleCartToggle} />
@@ -59,7 +56,6 @@ function App() {
           path="/catalog"
           element={<CatalogPage handleSubmitToCart={handleSubmitToCart} />}
         />
-        {/* <Route path="/profile" element={<Profile />} /> */}
       </Routes>
     </div>
   );
