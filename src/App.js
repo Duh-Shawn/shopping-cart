@@ -49,7 +49,9 @@ function App() {
   return (
     <div className="App">
       <NavBar cartCount={cartSize} handleCartToggle={handleCartToggle} />
-      {cartToggled && <ShoppingCart handleCartToggle={handleCartToggle} />}
+      {cartToggled && (
+        <ShoppingCart cart={cart} handleCartToggle={handleCartToggle} />
+      )}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
