@@ -8,6 +8,7 @@ function ShoppingCart(props) {
   const handleCartUpdate = (id, action, quantity) => {
     if (action === "UPDATE") {
       cart[id].quantity = quantity;
+      setCart({ ...cart });
     } else {
       delete cart[id];
       setCart({ ...cart });

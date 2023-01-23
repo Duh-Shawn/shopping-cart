@@ -19,14 +19,12 @@ function App() {
     // if cart is empty or if the data does not exist - add it to the cart for the first time
     if (Object.keys(cart) === 0 || !(data.id in cart)) {
       const { id, name, price, quantity, imageUrl } = data;
-
       // add item to cart object
       setCart({ ...cart, [id]: { name, price, quantity, imageUrl } });
       // add fresh quantity to cart
       setCartSize(cartSize + quantity);
     } else {
       const { id, name, price, quantity, imageUrl } = data;
-
       // track old quantity to correctly update totals
       const prevQuantity = cart[id].quantity;
       // add item to cart object
@@ -34,9 +32,6 @@ function App() {
         ...cart,
         [id]: { name, price, quantity: prevQuantity + quantity, imageUrl },
       });
-      // make quantity adjustments to the cart
-      // setCartSize(cartSize + (newQuantity - oldQuantity));
-      setCartSize(cartSize + quantity);
     }
   };
 
@@ -44,6 +39,18 @@ function App() {
     if (cartToggled) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "unset";
   }, [cartToggled]);
+
+  useEffect(() => {
+    let numberOfItemsInCart = 0;
+
+    if (Object.keys(cart).length !== 0) {
+      Object.entries(cart).forEach((item) => {
+        numberOfItemsInCart += Number(item[1].quantity);
+      });
+    }
+
+    setCartSize(Number(numberOfItemsInCart));
+  }, [cart]);
 
   return (
     <div className="App">
