@@ -1,47 +1,49 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-.item-card {
-  display: flex;
-  flex-direction: column;
+.clothes-card-container {
+  .item-card {
+    display: flex;
+    flex-direction: column;
 
-  .item-image {
-    img {
-      height: 100%;
-      width: 100%;
-    }
-  }
-
-  .item-info {
-    margin-top: 10px;
-
-    .item-title {
-      height: 100px;
+    .item-image {
+      img {
+        height: 100%;
+        width: 100%;
+      }
     }
 
-    .item-price-buy {
-      margin-top: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .item-info {
+      margin-top: 10px;
 
-      p {
-        font-family: Roboto, "Times New Roman", Times, serif;
-        font-size: 22px;
+      .item-title {
+        height: 100px;
       }
 
-      .item-quantity {
-        input {
-          flex: 0;
-          margin-right: 5px;
-          width: 200px;
-          border: 1px solid rgba(0, 0, 0, 0.178);
-          text-align: center;
+      .item-price-buy {
+        margin-top: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+          font-family: Roboto, "Times New Roman", Times, serif;
+          font-size: 22px;
         }
-        button {
-          padding-left: 5px;
-          padding-right: 5px;
-          border: none;
-          border-radius: 5px;
+
+        .item-quantity {
+          input {
+            flex: 0;
+            margin-right: 5px;
+            width: 200px;
+            border: 1px solid rgba(0, 0, 0, 0.178);
+            text-align: center;
+          }
+          button {
+            padding-left: 5px;
+            padding-right: 5px;
+            border: none;
+            border-radius: 5px;
+          }
         }
       }
     }

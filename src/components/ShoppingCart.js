@@ -5,6 +5,14 @@ import CartListItem from "./CartListItem";
 function ShoppingCart(props) {
   const { handleCartToggle, cart } = props;
 
+  const handleCartUpdate = (id, action, quantity) => {
+    if (action === "UPDATE") {
+      cart[id].quantity = quantity;
+    } else {
+      // do delete here
+    }
+  };
+
   return (
     <div className="shopping-cart-modal">
       <div className="shopping-cart-container">
@@ -20,7 +28,12 @@ function ShoppingCart(props) {
         </div>
         <div className="shopping-cart-list">
           {Object.entries(cart).map((item) => (
-            <CartListItem key={item[0]} id={item[0]} itemData={item[1]} />
+            <CartListItem
+              key={item[0]}
+              id={item[0]}
+              itemData={item[1]}
+              handleCartUpdate={handleCartUpdate}
+            />
           ))}
         </div>
       </div>

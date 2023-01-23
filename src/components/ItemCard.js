@@ -19,9 +19,8 @@ function ItemCard(props) {
         name: suit.name,
         price: suit.price.current.text,
         quantity: Number(selectedValue),
+        imageUrl: suit.imageUrl,
       };
-      // eslint-disable-next-line no-unused-vars
-      const { id } = suit;
 
       // send this to parent component to add this to cart
       handleSubmitToCart(data);
