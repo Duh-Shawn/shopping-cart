@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 import CartListItem from "./CartListItem";
 
 function ShoppingCart(props) {
-  const { handleCartToggle, cart } = props;
+  const { handleCartToggle, cart, setCart } = props;
 
   const handleCartUpdate = (id, action, quantity) => {
     if (action === "UPDATE") {
       cart[id].quantity = quantity;
     } else {
-      // do delete here
+      delete cart[id];
+      setCart({ ...cart });
     }
   };
 
@@ -43,6 +44,7 @@ function ShoppingCart(props) {
 ShoppingCart.propTypes = {
   handleCartToggle: PropTypes.func.isRequired,
   cart: PropTypes.object.isRequired,
+  setCart: PropTypes.func.isRequired,
 };
 
 export default ShoppingCart;

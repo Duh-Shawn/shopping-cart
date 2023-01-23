@@ -9,7 +9,6 @@ import "./styles/app.scss";
 function App() {
   const [cart, setCart] = useState({});
   const [cartSize, setCartSize] = useState(0);
-  // eslint-disable-next-line no-unused-vars
   const [cartToggled, setCartToggled] = useState(false);
 
   const handleCartToggle = () => {
@@ -50,7 +49,11 @@ function App() {
     <div className="App">
       <NavBar cartCount={cartSize} handleCartToggle={handleCartToggle} />
       {cartToggled && (
-        <ShoppingCart cart={cart} handleCartToggle={handleCartToggle} />
+        <ShoppingCart
+          cart={cart}
+          handleCartToggle={handleCartToggle}
+          setCart={setCart}
+        />
       )}
       <Routes>
         <Route path="/" element={<HomePage />} />
