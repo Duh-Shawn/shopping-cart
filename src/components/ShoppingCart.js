@@ -7,11 +7,21 @@ function ShoppingCart(props) {
 
   const handleCartUpdate = (id, action, quantity) => {
     if (action === "UPDATE") {
-      cart[id].quantity = quantity;
-      setCart({ ...cart });
+      // get old item status
+      const oldItem = cart.get(id);
+      setCart(
+        new Map(
+          cart.set(id, {
+            name: oldItem.name,
+            price: oldItem.price,
+            quantity,
+            imageUrl: oldItem.imageUrl,
+          })
+        )
+      );
     } else {
-      delete cart[id];
-      setCart({ ...cart });
+      cart.delete(id);
+      setCart(new Map(cart));
     }
   };
 
@@ -29,11 +39,11 @@ function ShoppingCart(props) {
           </button>
         </div>
         <div className="shopping-cart-list">
-          {Object.entries(cart).map((item) => (
+          {[...cart.keys()].map((itemKey) => (
             <CartListItem
-              key={item[0]}
-              id={item[0]}
-              itemData={item[1]}
+              key={itemKey}
+              id={itemKey}
+              itemData={cart.get(itemKey)}
               handleCartUpdate={handleCartUpdate}
             />
           ))}

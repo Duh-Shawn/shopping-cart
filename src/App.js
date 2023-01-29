@@ -7,7 +7,7 @@ import ShoppingCart from "./components/ShoppingCart";
 import "./styles/app.scss";
 
 function App() {
-  const [cart, setCart] = useState({});
+  const [cart, setCart] = useState(new Map());
   const [cartSize, setCartSize] = useState(0);
   const [cartToggled, setCartToggled] = useState(false);
 
@@ -17,21 +17,25 @@ function App() {
 
   const handleSubmitToCart = (data) => {
     // if cart is empty or if the data does not exist - add it to the cart for the first time
-    if (Object.keys(cart) === 0 || !(data.id in cart)) {
+    if (cart.size === 0 || !cart.has(data.id)) {
       const { id, name, price, quantity, imageUrl } = data;
       // add item to cart object
-      setCart({ ...cart, [id]: { name, price, quantity, imageUrl } });
+      setCart(new Map(cart.set(id, { name, price, quantity, imageUrl })));
       // add fresh quantity to cart
-      setCartSize(cartSize + quantity);
     } else {
       const { id, name, price, quantity, imageUrl } = data;
-      // track old quantity to correctly update totals
-      const prevQuantity = cart[id].quantity;
-      // add item to cart object
-      setCart({
-        ...cart,
-        [id]: { name, price, quantity: prevQuantity + quantity, imageUrl },
-      });
+      // get the old cart item
+      const oldItem = cart.get(id);
+      setCart(
+        new Map(
+          cart.set(id, {
+            name,
+            price,
+            quantity: oldItem.quantity + quantity,
+            imageUrl,
+          })
+        )
+      );
     }
   };
 
@@ -43,9 +47,9 @@ function App() {
   useEffect(() => {
     let numberOfItemsInCart = 0;
 
-    if (Object.keys(cart).length !== 0) {
-      Object.entries(cart).forEach((item) => {
-        numberOfItemsInCart += Number(item[1].quantity);
+    if (cart.size !== 0) {
+      [...cart.keys()].forEach((itemKey) => {
+        numberOfItemsInCart += Number(cart.get(itemKey).quantity);
       });
     }
 
