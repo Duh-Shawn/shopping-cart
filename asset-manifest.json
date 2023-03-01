@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/shopping-cart/static/css/main.c79d5bbf.css",
-    "main.js": "/shopping-cart/static/js/main.3a0b7540.js",
-    "static/media/pexels-andrea-piacquadio-3755706.jpg": "/shopping-cart/static/media/pexels-andrea-piacquadio-3755706.40bbd60cb042ffdf2a58.jpg",
-    "index.html": "/shopping-cart/index.html",
-    "main.c79d5bbf.css.map": "/shopping-cart/static/css/main.c79d5bbf.css.map",
-    "main.3a0b7540.js.map": "/shopping-cart/static/js/main.3a0b7540.js.map"
+    "main.css": "/suit-outpost-shopping-cart/static/css/main.ec865389.css",
+    "main.js": "/suit-outpost-shopping-cart/static/js/main.aa982f04.js",
+    "static/media/pexels-andrea-piacquadio-3755706.jpg": "/suit-outpost-shopping-cart/static/media/pexels-andrea-piacquadio-3755706.40bbd60cb042ffdf2a58.jpg",
+    "index.html": "/suit-outpost-shopping-cart/index.html",
+    "main.ec865389.css.map": "/suit-outpost-shopping-cart/static/css/main.ec865389.css.map",
+    "main.aa982f04.js.map": "/suit-outpost-shopping-cart/static/js/main.aa982f04.js.map"
   },
   "entrypoints": [
-    "static/css/main.c79d5bbf.css",
-    "static/js/main.3a0b7540.js"
+    "static/css/main.ec865389.css",
+    "static/js/main.aa982f04.js"
   ]
 }
