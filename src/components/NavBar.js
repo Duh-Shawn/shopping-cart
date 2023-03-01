@@ -15,7 +15,7 @@ function Nav(props) {
         </li>
         <li className="nav-header">
           <Link to="/">
-            <h1>Men&apos;s Outpost</h1>
+            <h1>Suit Outpost</h1>
           </Link>
         </li>
         <li className="nav-right-buttons">
