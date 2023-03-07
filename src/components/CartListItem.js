@@ -5,7 +5,7 @@ function CartListItem(props) {
   const { id, itemData, handleCartUpdate } = props;
   const { name, price, quantity, imageUrl } = itemData;
 
-  const handleCartChange = (element) => {
+  const handleChange = (element) => {
     // user updated quantity
     if (element.target.type === "number") {
       // use parent component to update quantity field in cart object
@@ -26,10 +26,10 @@ function CartListItem(props) {
           <input
             type="number"
             defaultValue={quantity}
-            onChange={handleCartChange}
+            onChange={handleChange}
             min="1"
           />
-          <button type="button" onClick={handleCartChange}>
+          <button type="button" onClick={handleChange}>
             Remove
           </button>
         </div>
@@ -40,6 +40,6 @@ function CartListItem(props) {
 CartListItem.propTypes = {
   itemData: PropTypes.object.isRequired,
   handleCartUpdate: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 export default CartListItem;
