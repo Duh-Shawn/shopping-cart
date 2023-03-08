@@ -31,6 +31,7 @@
         }
 
         .item-quantity {
+
           input {
             flex: 0;
             margin-right: 5px;
@@ -39,10 +40,9 @@
             text-align: center;
           }
           button {
-            padding-left: 5px;
-            padding-right: 5px;
             border: none;
-            border-radius: 5px;
+            background-color: white;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.178);
           }
         }
       }
