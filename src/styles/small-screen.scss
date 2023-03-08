@@ -1,0 +1,29 @@
+@media (max-width: 600px) {
+  .clothes-card-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  nav {
+    padding: 25px 15px 25px 15px;
+
+    ul {
+      grid-template-columns: 0.5fr 1fr 1fr;
+
+      .nav-header {
+        font-size: 15px;
+        white-space: nowrap;
+      }
+
+      .nav-right-buttons {
+        gap: 10px;
+      }
+    }
+  }
+
+  .shopping-cart-modal {
+    .shopping-cart-container {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

@@ -5,6 +5,7 @@ import HomePage from "./components/HomePage";
 import CatalogPage from "./components/CatalogPage";
 import ShoppingCart from "./components/ShoppingCart";
 import "./styles/app.scss";
+import "./styles/small-screen.scss";
 
 function App() {
   const [cart, setCart] = useState(new Map());
